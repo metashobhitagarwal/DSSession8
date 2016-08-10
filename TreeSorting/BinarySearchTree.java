@@ -26,12 +26,13 @@ public class BinarySearchTree {
 			while(true)
 			{
 				putter = temp;
-				if(temp.getData() > data)
+				if(temp.getData() > (Integer)data)
 				{
-					temp=temp.left;
+					temp=temp.getLeft();
 					if(temp==null)
 					{
-						putter.left=newNode;
+						putter.setLeft(newNode);
+						return;
 					}
 				}
 				else
@@ -39,21 +40,20 @@ public class BinarySearchTree {
 					temp=temp.right;
 					if(temp==null)
 					{
-						putter.right=newNode;
+						putter.setRight(newNode);
+						return;
 					}
 				}
 			}
 		}
 	}
 	
-	public List<Integer> inorder(Node root1, List<Integer> list)
-	{
-		
-		if(root1 != null){
-			inorder(root1.getLeft(),list);
-			list.add(root1.getData());
-			//System.out.println(root1.getData());
-			inorder(root1.getRight(),list);
+	public List<Integer> inOrder(Node node, List<Integer> list) {
+		if (node != null) {
+
+			inOrder(node.getLeft(), list);
+			list.add(node.getData());
+			inOrder(node.getRight(), list);
 		}
 		return list;
 	}

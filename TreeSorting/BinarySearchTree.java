@@ -50,7 +50,6 @@ public class BinarySearchTree {
 	
 	public List<Integer> inOrder(Node node, List<Integer> list) {
 		if (node != null) {
-
 			inOrder(node.getLeft(), list);
 			list.add(node.getData());
 			inOrder(node.getRight(), list);
